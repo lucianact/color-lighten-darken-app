@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lucida Sans';
+    background-color: coral;
+    color: cornsilk;
+}
+
+.container {
+    padding: 50px 50px;
+}
+
+.title {
+    padding-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+input {
+    margin-bottom: 25px;
+    
+} 
+
+input[type="text"] {
+    padding: 5px 10px;
+    border-radius: 90px;
+    border: none;
+}
+
+p {
+    padding-bottom: 10px;
+}
+
+.box {
+    height:100px;
+    width: 100%;
+    background-color: #c6d5ac;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
