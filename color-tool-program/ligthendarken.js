@@ -1,10 +1,4 @@
-// parseInt()
-// getElementById()
-// replace()
-// toString()
-// contains
-
-//check to see whether the input from the user is a valid
+//Check to see whether the input from the user is a valid
 //hex color
 //1. #000000 or 000000
 //2. check the length - should be either 3 or 6 characters
@@ -15,7 +9,6 @@ const isValidHex = (hex) => {
     return strippedHex.length === 3 || strippedHex.length === 6;
 }
 
-//CHALLENGE
 //Get a reference to hexInput and inputColor DOM elements
 //Create a keyup event handler for hexInput
 //Check if hex color is valid
@@ -62,7 +55,6 @@ console.log(convertHexToRGB("000"));
 //for each (r,g,b) - create a hex pair that is two characters long
 //return hex value starting with a hashtag
 //example - r.toString(16)
-
 const convertRGBToHex = (r, g, b) => {
     const hexR = ("0" + r.toString(16)).slice(-2);
     const hexG = ("0" + g.toString(16)).slice(-2);
@@ -73,4 +65,20 @@ const convertRGBToHex = (r, g, b) => {
 
 }
 
-console.log(convertRGBToHex(255, 255, 255));
+// console.log(convertRGBToHex(255, 255, 255));
+
+//Get a reference to the slider and sliderText DOM elements
+//create an input event listener for slider element
+//display the value of the slider 
+const slider = document.getElementById("slider");
+const sliderText = document.getElementById("sliderText");
+
+slider.addEventListener('input', () => {
+    sliderText.textContent = `${slider.value}%`;
+})
+
+//Create the alterColor function which accepts hex value and percentage
+//convert the hex value to rgb
+//increase each r,g,b value by appropriate amount (percentage of 255)
+//use the new r,g,b values to convert to a hex value
+//return the hex value
