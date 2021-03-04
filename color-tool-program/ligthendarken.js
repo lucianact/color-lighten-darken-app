@@ -40,7 +40,7 @@ hexInput.addEventListener('keyup', () => {
 const convertHexToRGB = (hex) => {
     if(!isValidHex(hex)) return null;
     
-    const strippedHex = hex.replace('#','');
+    let strippedHex = hex.replace('#','');
     
     if(strippedHex.length === 3) {
       strippedHex = strippedHex[0] + strippedHex[0]
@@ -56,3 +56,21 @@ const convertHexToRGB = (hex) => {
 }
   
 console.log(convertHexToRGB("000"));
+
+//Create the function converRGBToHex
+//take in 3 parameters - r,g, and b
+//for each (r,g,b) - create a hex pair that is two characters long
+//return hex value starting with a hashtag
+//example - r.toString(16)
+
+const convertRGBToHex = (r, g, b) => {
+    const hexR = ("0" + r.toString(16)).slice(-2);
+    const hexG = ("0" + g.toString(16)).slice(-2);
+    const hexB = ("0" + b.toString(16)).slice(-2);
+
+    const hexValue = "#" + hexR + hexB + hexG;
+    return hexValue
+
+}
+
+console.log(convertRGBToHex(255, 255, 255));
