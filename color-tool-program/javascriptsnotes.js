@@ -90,6 +90,34 @@ console.log(`${str} ${str.length}`);
 
 // ------------------------------------------------------------------
 
+// The parseInt() function:
+// converts its first argument to a string, parses that string, then returns an integer or NaN:
+// parseInt(string [, radix])
+
+const x = 5;
+const y = "10";
+console.log(x + y) // => 510
+const yInt = Number.parseInt(y);
+console.log(x + y) // => 15
+const yInt = Number.parseInt("10.9283 is my favorite number");
+console.log(x + y) // => 15
+// hint: use parseFloat if you want to preserver the decimal values
+
+// Converting decimal numbers to binary, octal and hexadecimal:
+
+// from different bases to decimal:
+const x = 5;
+console.log(number.parseInt(x, 2))  // => 3
+console.log(number.parseInt(x, 8))  // => 9
+console.log(number.parseInt(x, 16)) // => 17
+
+// from decimal to different bases:
+const x = Number("5");
+console.log("Decimal to binary:", x.toString(2));   // => 1011
+console.log("Decimal to binary:", x.toString(8));   // => 13
+console.log("Decimal to binary:", x.toString(16));  // => b
+
+
 //.value
 //style.background
 //getElementById
