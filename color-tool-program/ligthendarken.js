@@ -82,3 +82,16 @@ slider.addEventListener('input', () => {
 //increase each r,g,b value by appropriate amount (percentage of 255)
 //use the new r,g,b values to convert to a hex value
 //return the hex value
+const alterColor = (hex, percentage) => {
+    const {r,g,b} = convertHexToRGB(hex);
+    
+    const amount = Math.floor((percentage/100) * 255);
+    
+    const newR = r + amount;
+    const newG = g + amount;
+    const newB = b + amount;
+    console.log(newR, newG, newB)
+    return convertRGBToHex(newR, newG, newB);
+  }
+
+console.log(alterColor('ccc', 10));
