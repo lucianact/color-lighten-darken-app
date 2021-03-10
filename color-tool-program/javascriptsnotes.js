@@ -117,6 +117,8 @@ console.log("Decimal to binary:", x.toString(2));   // => 1011
 console.log("Decimal to binary:", x.toString(8));   // => 13
 console.log("Decimal to binary:", x.toString(16));  // => b
 
+// ------------------------------------------------------------------
+
 
 //.value
 //style.background
