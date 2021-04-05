@@ -1,29 +1,31 @@
+const hexInput = document.getElementById('hexInput');
+const inputColor = document.getElementById('inputColor');
+const alteredColor = document.getElementById('alteredColor');
+const alteredColorText = document.getElementById('alteredColorText');
+const slider = document.getElementById("slider");
+const sliderText = document.getElementById("sliderText");
+
 //Check to see whether the input from the user is a valid
 //hex color
 //1. #000000 or 000000
 //2. check the length - should be either 3 or 6 characters
 const isValidHex = (hex) => {
     if(!hex) return false;
-    
     const strippedHex = hex.replace('#', '');
     return strippedHex.length === 3 || strippedHex.length === 6;
 }
 
-//Get a reference to hexInput and inputColor DOM elements
+
 //Create a keyup event handler for hexInput
 //Check if hex color is valid
 //If hex color is valid, update the background color of inputColor 
-const hexInput = document.getElementById('hexInput');
-const inputColor = document.getElementById('inputColor');
-
 hexInput.addEventListener('keyup', () => {
     const hex = hexInput.value;
     if(!isValidHex(hex)) return;
-    
     const strippedHex = hex.replace('#', '');
-    
     inputColor.style.backgroundColor = "#" + strippedHex;
 })
+
 
 //Create a function to convert Hex to RGB
 //this should work with 3 or 6 character hex values
@@ -32,7 +34,7 @@ hexInput.addEventListener('keyup', () => {
 //Test your function with a few different use cases
 const convertHexToRGB = (hex) => {
     if(!isValidHex(hex)) return null;
-    
+
     let strippedHex = hex.replace('#','');
     
     if(strippedHex.length === 3) {
@@ -47,8 +49,8 @@ const convertHexToRGB = (hex) => {
     
     return {r,g,b}
 }
-  
-console.log(convertHexToRGB("000"));
+  // console.log(convertHexToRGB("000"));
+
 
 //Create the function converRGBToHex
 //take in 3 parameters - r,g, and b
@@ -64,18 +66,15 @@ const convertRGBToHex = (r, g, b) => {
     return hexValue
 
 }
-
 // console.log(convertRGBToHex(255, 255, 255));
 
-//Get a reference to the slider and sliderText DOM elements
-//create an input event listener for slider element
-//display the value of the slider 
-// const slider = document.getElementById("slider");
-// const sliderText = document.getElementById("sliderText");
 
+//Create an input event listener for slider element
+//display the value of the slider 
 // slider.addEventListener('input', () => {
 //     sliderText.textContent = `${slider.value}%`;
 // })
+
 
 //Create the alterColor function which accepts hex value and percentage
 //convert the hex value to rgb
@@ -122,6 +121,17 @@ const alterColor = (hex, percentage) => {
     console.log(newR, newG, newB)
     return convertRGBToHex(newR, newG, newB);
   }
-
 // console.log(alterColor('ccc', 10));
 
+// Now let's put things together:
+slider.addEventListener('input', () => {
+  
+    //check if hex is valid
+    if(!isValidHex(hexInput.value)) return;
+    sliderText.textContent = `${slider.value}%`;
+    //get the altered hex value
+    const alteredHex = alterColor(hexInput.value, slider.value);
+    //update the altered color
+    alteredColor.style.backgroundColor = alteredHex;
+    alteredColorText.innerText = `Altered Color ${alteredHex}`; 
+  })
