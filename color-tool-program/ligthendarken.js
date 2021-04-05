@@ -135,3 +135,7 @@ slider.addEventListener('input', () => {
     alteredColor.style.backgroundColor = alteredHex;
     alteredColorText.innerText = `Altered Color ${alteredHex}`; 
   })
+
+// Next steps:
+//lightenText, darkenText, toggleBtn
+//click event listener to the toggle btn
