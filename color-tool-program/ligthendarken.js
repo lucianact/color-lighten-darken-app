@@ -70,13 +70,42 @@ const convertRGBToHex = (r, g, b) => {
 //Get a reference to the slider and sliderText DOM elements
 //create an input event listener for slider element
 //display the value of the slider 
-const slider = document.getElementById("slider");
-const sliderText = document.getElementById("sliderText");
+// const slider = document.getElementById("slider");
+// const sliderText = document.getElementById("sliderText");
 
-slider.addEventListener('input', () => {
-    sliderText.textContent = `${slider.value}%`;
-})
+// slider.addEventListener('input', () => {
+//     sliderText.textContent = `${slider.value}%`;
+// })
 
+//Create the alterColor function which accepts hex value and percentage
+//convert the hex value to rgb
+//increase each r,g,b value by appropriate amount (percentage of 255)
+//use the new r,g,b values to convert to a hex value
+//return the hex value
+// const alterColor = (hex, percentage) => {
+//     const {r,g,b} = convertHexToRGB(hex);
+    
+//     const amount = Math.floor((percentage/100) * 255);
+    
+//     const newR = increaseWithin0To255(r, amount);
+//     const newG = increaseWithin0To255(g, amount);
+//     const newB = increaseWithin0To255(b, amount);
+//     console.log(newR, newG, newB)
+//     return convertRGBToHex(newR, newG, newB);
+//   }
+
+// console.log(alterColor('ccc', 10));
+
+// We need to add some constraints in our previous hex values
+// since hex values shouldn't be less than 0 or more than 255
+const increaseWithin0To255 = (hex, amount) => {
+    const newHex = hex + amount;
+    if(newHex > 255) return 255;
+    if(newHex < 0) return 0;
+    return newHex;
+    // return Math.min(255, Math.max(0, hex + amount));
+  }
+  
 //Create the alterColor function which accepts hex value and percentage
 //convert the hex value to rgb
 //increase each r,g,b value by appropriate amount (percentage of 255)
@@ -87,11 +116,12 @@ const alterColor = (hex, percentage) => {
     
     const amount = Math.floor((percentage/100) * 255);
     
-    const newR = r + amount;
-    const newG = g + amount;
-    const newB = b + amount;
+    const newR = increaseWithin0To255(r, amount);
+    const newG = increaseWithin0To255(g, amount);
+    const newB = increaseWithin0To255(b, amount);
     console.log(newR, newG, newB)
     return convertRGBToHex(newR, newG, newB);
   }
 
-console.log(alterColor('ccc', 10));
+// console.log(alterColor('ccc', 10));
+
