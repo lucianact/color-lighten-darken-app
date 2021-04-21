@@ -27,6 +27,7 @@ hexInput.addEventListener('keyup', () => {
     if(!isValidHex(hex)) return;
     const strippedHex = hex.replace('#', '');
     inputColor.style.backgroundColor = "#" + strippedHex;
+    reset(); 
 })
 
 
@@ -159,5 +160,18 @@ toggleBtn.addEventListener('click', () => {
     lightenText.classList.add('unselected');
     darkenText.classList.remove('unselected');
   } 
+  reset(); 
 })
 
+//Set slider value to 0 and slider text to 0%
+//Set altered color to original input color
+//Reset alteredColorText to original input
+// call reset in toggleBtn click handler 
+// call reset in hexInput keyup handler 
+const reset = () =>{ 
+  slider.value = 0;
+  sliderText.innerText=`0%`;
+  alteredColor.style.backgroundColor = hexInput.value;
+  alteredColorText.innerText = `Altered Color ${hexInput.value}`; 
+
+}
