@@ -126,14 +126,21 @@ const alterColor = (hex, percentage) => {
   }
 // console.log(alterColor('ccc', 10));
 
+
 // Now let's put things together:
 slider.addEventListener('input', () => {
   
     //check if hex is valid
     if(!isValidHex(hexInput.value)) return;
+    //calulcate the appropriate value for the color alteration
+    //between positive and negative
+    const valueAddition  = 
+    toggleBtn.classList.contains('toggled') ? 
+    -slider.value 
+    : slider.value;
     sliderText.textContent = `${slider.value}%`;
     //get the altered hex value
-    const alteredHex = alterColor(hexInput.value, slider.value);
+    const alteredHex = alterColor(hexInput.value, valueAddition);
     //update the altered color
     alteredColor.style.backgroundColor = alteredHex;
     alteredColorText.innerText = `Altered Color ${alteredHex}`; 
