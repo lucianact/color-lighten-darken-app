@@ -65,7 +65,7 @@ const convertRGBToHex = (r, g, b) => {
     const hexG = ("0" + g.toString(16)).slice(-2);
     const hexB = ("0" + b.toString(16)).slice(-2);
 
-    const hexValue = "#" + hexR + hexB + hexG;
+    const hexValue = "#" + hexR + hexG + hexB;
     return hexValue
 
 }
