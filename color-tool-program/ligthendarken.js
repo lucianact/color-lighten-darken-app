@@ -8,6 +8,7 @@ const lightenText = document.getElementById('lightenText');
 const darkenText = document.getElementById('darkenText');
 const toggleBtn = document.getElementById('toggleBtn');
 
+
 //Check to see whether the input from the user is 
 //a valid hex color
 //1. #000000 or 000000
@@ -17,6 +18,7 @@ const isValidHex = (hex) => {
     const strippedHex = hex.replace('#', '');
     return strippedHex.length === 3 || strippedHex.length === 6;
 }
+
 
 //Create a keyup event handler for hexInput
 //Check if hex color is valid
@@ -28,6 +30,7 @@ hexInput.addEventListener('keyup', () => {
     inputColor.style.backgroundColor = "#" + strippedHex;
     reset(); // ? 
 })
+
 
 //Create a function to convert Hex to RGB
 //this should work with 3 or 6 character hex values
@@ -72,32 +75,6 @@ const convertRGBToHex = (r, g, b) => {
 // console.log(convertRGBToHex(255, 255, 255));
 
 
-//Create an input event listener for slider element
-//display the value of the slider 
-// slider.addEventListener('input', () => {
-//     sliderText.textContent = `${slider.value}%`;
-// })
-
-
-//Create the alterColor function which accepts hex value and percentage
-//convert the hex value to rgb
-//increase each r,g,b value by appropriate amount (percentage of 255)
-//use the new r,g,b values to convert to a hex value
-//return the hex value
-// const alterColor = (hex, percentage) => {
-//     const {r,g,b} = convertHexToRGB(hex);
-    
-//     const amount = Math.floor((percentage/100) * 255);
-    
-//     const newR = increaseWithin0To255(r, amount);
-//     const newG = increaseWithin0To255(g, amount);
-//     const newB = increaseWithin0To255(b, amount);
-//     console.log(newR, newG, newB)
-//     return convertRGBToHex(newR, newG, newB);
-//   }
-
-// console.log(alterColor('ccc', 10));
-
 // We need to add some constraints in our previous hex values
 // since hex values shouldn't be less than 0 or more than 255
 const increaseWithin0To255 = (hex, amount) => {
@@ -108,6 +85,7 @@ const increaseWithin0To255 = (hex, amount) => {
     // return Math.min(255, Math.max(0, hex + amount));
   }
   
+
 //Create the alterColor function which accepts hex value and percentage
 //convert the hex value to rgb
 //increase each r,g,b value by appropriate amount (percentage of 255)
@@ -146,6 +124,7 @@ slider.addEventListener('input', () => {
     alteredColorText.innerText = `Altered Color ${alteredHex}`; 
   })
 
+
 // Next steps:
 //lightenText, darkenText, toggleBtn
 //click event listener to the toggle btn
@@ -161,6 +140,7 @@ toggleBtn.addEventListener('click', () => {
   } 
   reset(); 
 })
+
 
 //Set slider value to 0 and slider text to 0%
 //Set altered color to original input color
