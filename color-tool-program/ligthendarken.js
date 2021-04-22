@@ -2,14 +2,14 @@ const hexInput = document.getElementById('hexInput');
 const inputColor = document.getElementById('inputColor');
 const alteredColor = document.getElementById('alteredColor');
 const alteredColorText = document.getElementById('alteredColorText');
-const slider = document.getElementById("slider");
-const sliderText = document.getElementById("sliderText");
+const slider = document.getElementById('slider');
+const sliderText = document.getElementById('sliderText');
 const lightenText = document.getElementById('lightenText');
 const darkenText = document.getElementById('darkenText');
 const toggleBtn = document.getElementById('toggleBtn');
 
-//Check to see whether the input from the user is a valid
-//hex color
+//Check to see whether the input from the user is 
+//a valid hex color
 //1. #000000 or 000000
 //2. check the length - should be either 3 or 6 characters
 const isValidHex = (hex) => {
@@ -18,18 +18,16 @@ const isValidHex = (hex) => {
     return strippedHex.length === 3 || strippedHex.length === 6;
 }
 
-
 //Create a keyup event handler for hexInput
 //Check if hex color is valid
 //If hex color is valid, update the background color of inputColor 
 hexInput.addEventListener('keyup', () => {
-    const hex = hexInput.value;
+    const hex = hexInput.value; 
     if(!isValidHex(hex)) return;
     const strippedHex = hex.replace('#', '');
     inputColor.style.backgroundColor = "#" + strippedHex;
-    reset(); 
+    reset(); // ? 
 })
-
 
 //Create a function to convert Hex to RGB
 //this should work with 3 or 6 character hex values
@@ -42,7 +40,8 @@ const convertHexToRGB = (hex) => {
     let strippedHex = hex.replace('#','');
     
     if(strippedHex.length === 3) {
-      strippedHex = strippedHex[0] + strippedHex[0]
+      strippedHex = 
+        strippedHex[0] + strippedHex[0]
       + strippedHex[1] + strippedHex[1]
       + strippedHex[2] + strippedHex[2];
     }
@@ -62,11 +61,11 @@ const convertHexToRGB = (hex) => {
 //return hex value starting with a hashtag
 //example - r.toString(16)
 const convertRGBToHex = (r, g, b) => {
-    const hexR = ("0" + r.toString(16)).slice(-2);
-    const hexG = ("0" + g.toString(16)).slice(-2);
-    const hexB = ("0" + b.toString(16)).slice(-2);
+    const hexR = ('0' + r.toString(16)).slice(-2);
+    const hexG = ('0' + g.toString(16)).slice(-2);
+    const hexB = ('0' + b.toString(16)).slice(-2);
 
-    const hexValue = "#" + hexR + hexG + hexB;
+    const hexValue = '#' + hexR + hexG + hexB;
     return hexValue
 
 }
